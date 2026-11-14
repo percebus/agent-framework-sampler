@@ -84,7 +84,7 @@ jobs:
           - semantic-kernel-sampler-py
           - agent-framework-sampler-py
 
-    uses: ./.github/workflows/uv_ci.yml
+    uses: ./.github/workflows/task_uv.yml
     name: ${{ matrix.project }}
     with:
       working-directory: python/${{ matrix.project }}
@@ -105,7 +105,7 @@ jobs:
             DOTNET_VERSION: 9
             DOTNET_TARGET_FRAMEWORK: net9.0
 
-    uses: ./.github/workflows/dotnet_ci.yml
+    uses: ./.github/workflows/task_dotnet.yml
     name: ${{ matrix.project }}
     with:
       dotnet-project-name: ${{ matrix.project }}
@@ -118,6 +118,8 @@ jobs:
     uses: ./.github/workflows/mvn_verify.yml
     name: SemanticKernelSampler.Java
 
+  #
+  # TODO move after docker_build__matrix
   docker_compose_build:
     name: docker compose build
     runs-on: ubuntu-latest
@@ -223,7 +225,7 @@ jobs:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: percebus/github-actions-docker/.github/actions/build@main
         with:
-          repository_name: ${{ github.event.repository.name }}.${{ matrix.image-name }}
+          image_tag: ${{ github.event.repository.name }}.${{ matrix.image-name }}
           working-directory: ${{ matrix.working-directory }}
           target: ${{ matrix.target }}
           scan-image: ${{ matrix.scan-image }}
