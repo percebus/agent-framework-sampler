@@ -22,12 +22,6 @@ workflows:
         - 'percebus/github-actions-common@main'
         - 'percebus/github-actions-node@main'
         - 'percebus/github-actions-npm@main'
-    '.github/workflows/dotnet_ci.yml':
-        - 'actions/upload-artifact@v4.6.2'
-        - 'go-task/setup-task@v2.2.0'
-        - 'jimmykurian/ci-parity@v1.0.0'
-        - 'percebus/github-actions-common@main'
-        - 'percebus/github-actions-dotnet@main'
     '.github/workflows/main.yml':
         - 'percebus/github-actions-common@main'
         - 'percebus/github-actions-docker@main'
@@ -37,7 +31,13 @@ workflows:
         - 'actions/setup-java@v4.9.1'
         - 'actions/upload-artifact@v4.6.2'
         - 'percebus/github-actions-common@main'
-    '.github/workflows/uv_ci.yml':
+    '.github/workflows/task_dotnet.yml':
+        - 'actions/upload-artifact@v4.6.2'
+        - 'go-task/setup-task@v2.2.0'
+        - 'jimmykurian/ci-parity@v1.0.0'
+        - 'percebus/github-actions-common@main'
+        - 'percebus/github-actions-dotnet@main'
+    '.github/workflows/task_uv.yml':
         - 'go-task/setup-task@v2.2.0'
         - 'jimmykurian/ci-parity@v1.0.0'
         - 'percebus/github-actions-common@main'
