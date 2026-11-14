@@ -4,9 +4,9 @@ from typing import TYPE_CHECKING, Sequence
 from a2a.server.agent_execution import AgentExecutor, RequestContext
 from a2a.server.events import EventQueue
 from a2a.utils import new_agent_text_message
+from agent_framework_sampler.config.mixin import ConfigurableMixin
 
 from agent_framework import ChatMessage, Role, Workflow, WorkflowRunResult
-from agent_framework_sampler.config.mixin import ConfigurableMixin
 
 if TYPE_CHECKING:
     from a2a.types import Message

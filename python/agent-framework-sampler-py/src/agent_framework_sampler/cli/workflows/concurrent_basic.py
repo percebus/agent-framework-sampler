@@ -2,7 +2,6 @@ import asyncio
 from typing import Sequence, cast
 
 from agent_framework import ChatMessage, Role, Workflow, WorkflowOutputEvent
-
 from agent_framework_sampler.dependency_injection.container import container
 
 PROMPT = "Explain the concept of temperature from multiple scientific perspectives."

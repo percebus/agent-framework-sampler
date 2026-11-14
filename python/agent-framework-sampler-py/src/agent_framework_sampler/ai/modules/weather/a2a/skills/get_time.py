@@ -1,10 +1,9 @@
 from typing import Optional
 
 from a2a.types import AgentSkill
-from pydantic import BaseModel
-
 from agent_framework_sampler.ai.modules.weather.agent_framework.tools.date_time.v1 import get_time
 from agent_framework_sampler.utils.lodash import noop
+from pydantic import BaseModel
 
 noop(BaseModel)
 noop(get_time)

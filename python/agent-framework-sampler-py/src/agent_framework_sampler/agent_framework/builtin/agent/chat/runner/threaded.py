@@ -2,7 +2,6 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 from agent_framework import AgentRunResponse, AgentThread, ChatAgent, ChatMessage
-
 from agent_framework_sampler.agent_framework.builtin.agent.chat.runner.protocol import ChatAgentRunnerProtocol
 
 

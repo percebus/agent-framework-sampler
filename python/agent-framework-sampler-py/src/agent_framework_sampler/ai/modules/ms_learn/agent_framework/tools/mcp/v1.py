@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
 
 from agent_framework import MCPStreamableHTTPTool
-
 from agent_framework_sampler.config.configuration import Configuration
 
 
