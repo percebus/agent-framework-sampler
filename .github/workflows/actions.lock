@@ -29,10 +29,10 @@ workflows:
         - 'percebus/github-actions-npm@main'
     '.github/workflows/mvn_verify.yml':
         - 'actions/setup-java@v6.2.0'
-        - 'actions/upload-artifact@v4.6.2'
+        - 'actions/upload-artifact@v7.0.2'
         - 'percebus/github-actions-common@main'
     '.github/workflows/task_dotnet.yml':
-        - 'actions/upload-artifact@v4.6.2'
+        - 'actions/upload-artifact@v7.0.2'
         - 'go-task/setup-task@v2.2.0'
         - 'jimmykurian/ci-parity@v1.0.0'
         - 'percebus/github-actions-common@main'
@@ -63,9 +63,9 @@ dependencies:
         commit: 'sha1-3235b876344d2a9aa001b8d1453c930bba69e610'
         owner_id: 44036562
         repo_id: 189476904
-    'actions/upload-artifact@v4.6.2':
-        ref: 'v4.6.2'
-        commit: 'sha1-ea165f8d65b6e75b540449e92b4886f43607fa02'
+    'actions/upload-artifact@v7.0.2':
+        ref: 'v7.0.2'
+        commit: 'sha1-cf430e030ddbb5b0abf93d22962f4752f3646cd9'
         owner_id: 44036562
         repo_id: 192625955
     'anchore/scan-action@27805bf3b4e84b4a5c980df22ed233c00390a439':
