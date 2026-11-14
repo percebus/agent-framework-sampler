@@ -20,7 +20,6 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: percebus/github-actions-uv/.github/actions/setup@main
-
       - uses: percebus/github-actions-uv/.github/actions/tool_install@main
         with:
           requirements-file: ${{ inputs.working-directory }}/requirements.uv.tool.txt

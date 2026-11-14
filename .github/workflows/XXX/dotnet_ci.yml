@@ -58,3 +58,9 @@ jobs:
           working-directory: ${{ env.WORKSPACE }}
           dotnet_project: ${{ inputs.dotnet-project }}
           dotnet_configuration: ${{ inputs.dotnet-configuration }}
+
+      - name: bin.zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.dotnet-project-name }}.WebApp.zip
+          path: ${{ env.WORKSPACE }}/WebApp/bin/${{ inputs.dotnet-configuration }}/${{ inputs.dotnet-target-framework }}
