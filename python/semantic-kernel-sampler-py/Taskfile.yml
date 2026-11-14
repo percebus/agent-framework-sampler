@@ -4,7 +4,9 @@ tasks:
   install:
     cmds:
       - ../../scripts/uv/tool/install.ba.sh
+      - uv python install
       - uv run -- poe sync_all
+      - uv pip freeze
   lint:
     cmds:
       - uv run -- poe lint

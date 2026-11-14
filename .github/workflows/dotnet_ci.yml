@@ -48,19 +48,37 @@ jobs:
         with:
           dotnet-version: ${{ inputs.dotnet-version }}
 
-      - uses: percebus/github-actions-dotnet/.github/actions/restore@main
-        with:
-          working-directory: ${{ env.WORKSPACE }}
-          dotnet_project: ${{ inputs.dotnet-project }}
+      # - uses: percebus/github-actions-dotnet/.github/actions/restore@main
+      #   with:
+      #     working-directory: ${{ env.WORKSPACE }}
+      #     dotnet_project: ${{ inputs.dotnet-project }}
 
-      - uses: percebus/github-actions-dotnet/.github/actions/build@main
-        with:
-          working-directory: ${{ env.WORKSPACE }}
-          dotnet_project: ${{ inputs.dotnet-project }}
-          dotnet_configuration: ${{ inputs.dotnet-configuration }}
+      # - uses: percebus/github-actions-dotnet/.github/actions/build@main
+      #   with:
+      #     working-directory: ${{ env.WORKSPACE }}
+      #     dotnet_project: ${{ inputs.dotnet-project }}
+      #     dotnet_configuration: ${{ inputs.dotnet-configuration }}
+
+      - name: task install
+        run: task install
+        working-directory: ${{ env.WORKSPACE }}
+
+      - name: task lint
+        run: task lint
+        working-directory: ${{ env.WORKSPACE }}
+
+      - name: task build
+        run: task build
+        working-directory: ${{ env.WORKSPACE }}
+
+      - name: task test
+        run: task test
+        working-directory: ${{ env.WORKSPACE }}
 
       - name: bin.zip
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: ${{ inputs.dotnet-project-name }}.WebApp.zip
           path: ${{ env.WORKSPACE }}/WebApp/bin/${{ inputs.dotnet-configuration }}/${{ inputs.dotnet-target-framework }}
+
+      - uses: jimmykurian/ci-parity@v1.0.0
