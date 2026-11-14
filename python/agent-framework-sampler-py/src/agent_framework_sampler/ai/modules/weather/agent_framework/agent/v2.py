@@ -2,7 +2,6 @@ from dataclasses import dataclass, field
 
 from agent_framework import ChatAgent
 from agent_framework._clients import ChatClientProtocol
-
 from agent_framework_sampler.ai.modules.weather.agent_framework.tools.date_time.v1 import get_time
 from agent_framework_sampler.ai.modules.weather.agent_framework.tools.weather.v2 import get_weather, get_weather_detail
 

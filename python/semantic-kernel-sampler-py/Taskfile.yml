@@ -1,0 +1,21 @@
+version: "3"
+
+tasks:
+  install:
+    cmds:
+      - bash ./scripts/uv/tool/install.ba.sh
+      - uv python install
+      - uv sync --locked --all-groups --all-extras
+      - uv pip freeze
+  lint:
+    cmds:
+      - uv run -- pypyr lint
+  test:
+    cmds:
+      - uv run -- pypyr test
+  build:
+    cmds:
+      - uv run -- pypyr build
+  ci:
+    cmds:
+      - uv run -- pypyr ci

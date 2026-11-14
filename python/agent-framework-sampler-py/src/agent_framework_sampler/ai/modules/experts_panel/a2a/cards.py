@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 from a2a.types import AgentCapabilities, AgentCard, AgentSkill
-
 from agent_framework_sampler.a2a.cards.mixin import A2ACardsMixin
 from agent_framework_sampler.ai.modules.chemistry_expert.a2a.skills.chat import ChemistryAgentSkill
 from agent_framework_sampler.ai.modules.experts_panel.a2a.skills.chat import MultiExpertPanelAgentSkill

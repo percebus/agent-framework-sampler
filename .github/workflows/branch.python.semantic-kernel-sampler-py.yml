@@ -5,7 +5,7 @@ on:
   pull_request:
     paths:
       - python/semantic-kernel-sampler-py/**
-      - .github/workflows/uv_ci.yml
+      - .github/workflows/task_uv.yml
       - .github/workflows/branch.python.semantic-kernel-sampler-py.yml
 
 concurrency:
@@ -18,7 +18,7 @@ env:
 
 jobs:
   verify:
-    uses: ./.github/workflows/uv_ci.yml
+    uses: ./.github/workflows/task_uv.yml
     with:
       working-directory: python/semantic-kernel-sampler-py
 
@@ -42,7 +42,7 @@ jobs:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: percebus/github-actions-docker/.github/actions/build@main
         with:
-          repository_name: ${{ github.event.repository.name }}.${{ env.PROJECT_NAME }}
+          image_tag: ${{ github.event.repository.name }}.${{ env.PROJECT_NAME }}
           working-directory: ${{ env.WORKSPACE }}
           target: ${{ matrix.target }}
           scan-image: "false"

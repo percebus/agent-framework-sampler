@@ -1,0 +1,77 @@
+name: "Re-Usable: task ci (dotnet)"
+
+on:
+  workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
+    inputs:
+      dotnet-project-name:
+        description: Project name
+        required: true
+        type: string
+
+      dotnet-version:
+        description: dotnet version
+        required: true
+        type: string
+
+      dotnet-target-framework:
+        description: dotnet target framework
+        required: true
+        type: string
+
+      dotnet-project:
+        description: dotnet project
+        required: false
+        type: string
+        default: "./*.sln*"
+
+      dotnet-configuration:
+        description: dotnet configuration
+        required: false
+        default: Release
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  # .NET
+  WORKSPACE: ./dotnet/${{ inputs.dotnet-project-name }}
+
+jobs:
+  dotnet:
+    name: dotnet * ${{ inputs.dotnet-project-name }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+
+      - uses: percebus/github-actions-dotnet/.github/actions/setup@main
+        with:
+          dotnet-version: ${{ inputs.dotnet-version }}
+
+      - uses: go-task/setup-task@v2.2.0
+
+      - name: task install
+        working-directory: ${{ env.WORKSPACE }}
+        run: task install
+
+      - name: task lint
+        working-directory: ${{ env.WORKSPACE }}
+        run: task lint
+
+      - name: task build
+        working-directory: ${{ env.WORKSPACE }}
+        run: task build
+
+      - name: task test
+        working-directory: ${{ env.WORKSPACE }}
+        run: task test
+
+      - name: bin.zip
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: ${{ inputs.dotnet-project-name }}.WebApp.zip
+          path: ${{ env.WORKSPACE }}/WebApp/bin/${{ inputs.dotnet-configuration }}/${{ inputs.dotnet-target-framework }}
+
+      - uses: jimmykurian/ci-parity@v1.0.0
+        with:
+          working-directory: ${{ env.WORKSPACE }}

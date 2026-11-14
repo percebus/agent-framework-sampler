@@ -1,0 +1,21 @@
+version: "3"
+
+tasks:
+  install:
+    cmds:
+      - dotnet restore
+  lint:
+    cmds:
+      # TODO stylecop cli
+      - exit 0
+  test:
+    cmds:
+      - dotnet test
+  build:
+    cmds:
+      - dotnet build
+  ci:
+    cmds:
+      - dotnet restore
+      - dotnet build
+      - dotnet test

@@ -1,0 +1,47 @@
+name: "Re-Usable: task ci (uv)"
+
+on:
+  workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
+    inputs:
+      working-directory:
+        description: "Working directory"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  # python
+  PYTHON_VERSION: 3.12.8
+  PYRIGHT_PYTHON_FORCE_VERSION: latest
+
+jobs:
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: percebus/github-actions-uv/.github/actions/setup@main
+
+      - uses: go-task/setup-task@v2.2.0
+
+      - name: task install
+        working-directory: ${{ inputs.working-directory }}
+        run: task install
+
+      - name: task lint
+        working-directory: ${{ inputs.working-directory }}
+        run: task lint
+
+      - name: task test
+        working-directory: ${{ inputs.working-directory }}
+        run: task test
+
+      - name: task build
+        working-directory: ${{ inputs.working-directory }}
+        run: task build
+
+      - uses: jimmykurian/ci-parity@v1.0.0
+        with:
+          working-directory: ${{ inputs.working-directory }}
