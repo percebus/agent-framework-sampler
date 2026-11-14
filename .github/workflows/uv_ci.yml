@@ -43,19 +43,19 @@ jobs:
       - uses: go-task/setup-task@v2.2.0
 
       - name: task install
-        run: task install
         working-directory: ${{ inputs.working-directory }}
+        run: task install
 
       - name: task lint
-        run: task lint
         working-directory: ${{ inputs.working-directory }}
+        run: task lint
 
       - name: task test
-        run: task test
         working-directory: ${{ inputs.working-directory }}
+        run: task test
 
       - name: task build
-        run: task build
         working-directory: ${{ inputs.working-directory }}
+        run: task build
 
       - uses: jimmykurian/ci-parity@v1.0.0

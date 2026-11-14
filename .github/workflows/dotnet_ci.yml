@@ -60,20 +60,20 @@ jobs:
       #     dotnet_configuration: ${{ inputs.dotnet-configuration }}
 
       - name: task install
-        run: task install
         working-directory: ${{ env.WORKSPACE }}
+        run: task install
 
       - name: task lint
-        run: task lint
         working-directory: ${{ env.WORKSPACE }}
+        run: task lint
 
       - name: task build
-        run: task build
         working-directory: ${{ env.WORKSPACE }}
+        run: task build
 
       - name: task test
-        run: task test
         working-directory: ${{ env.WORKSPACE }}
+        run: task test
 
       - name: bin.zip
         uses: actions/upload-artifact@v4.6.2

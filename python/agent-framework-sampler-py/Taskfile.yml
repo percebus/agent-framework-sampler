@@ -3,7 +3,7 @@ version: "3"
 tasks:
   install:
     cmds:
-      - ./scripts/uv/tool/install.ba.sh
+      - bash ./scripts/uv/tool/install.ba.sh
       - uv python install
       - uv sync --locked --all-groups
       - uv pip freeze
