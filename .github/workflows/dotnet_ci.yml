@@ -52,12 +52,14 @@ jobs:
       #   with:
       #     working-directory: ${{ env.WORKSPACE }}
       #     dotnet_project: ${{ inputs.dotnet-project }}
-
+      #
       # - uses: percebus/github-actions-dotnet/.github/actions/build@main
       #   with:
       #     working-directory: ${{ env.WORKSPACE }}
       #     dotnet_project: ${{ inputs.dotnet-project }}
       #     dotnet_configuration: ${{ inputs.dotnet-configuration }}
+
+      - uses: go-task/setup-task@v2.2.0
 
       - name: task install
         working-directory: ${{ env.WORKSPACE }}
