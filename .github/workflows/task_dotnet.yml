@@ -1,8 +1,5 @@
 name: "Re-Usable: task ci (dotnet)"
 
-permissions:
-  contents: read
-
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
     inputs:
@@ -32,6 +29,9 @@ on:
         required: false
         default: Release
         type: string
+
+permissions:
+  contents: read
 
 env:
   # .NET
