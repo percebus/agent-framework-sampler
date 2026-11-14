@@ -52,7 +52,7 @@ jobs:
         with:
           working-directory: ${{ env.WORKSPACE }}
           dotnet_project: ${{ inputs.dotnet-project }}
-      
+
       - uses: percebus/github-actions-dotnet/.github/actions/build@main
         with:
           working-directory: ${{ env.WORKSPACE }}
