@@ -7,7 +7,7 @@
   ],
   "private": true,
   "scripts": {
-    "npm:install:global:all": "npm install --location global yarn bower go-task",
+    "npm:install:global:all": "npm install --location global yarn bower @go-task/cli",
     "setup": "npm run npm:install:global:all",
     "setup:ci": "npm run setup",
     "_bower": "bower --allow-root",
