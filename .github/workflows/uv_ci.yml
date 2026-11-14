@@ -59,3 +59,5 @@ jobs:
         run: task build
 
       - uses: jimmykurian/ci-parity@v1.0.0
+        with:
+          working-directory: ${{ inputs.working-directory }}
