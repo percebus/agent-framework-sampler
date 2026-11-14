@@ -24,6 +24,7 @@ workflows:
         - 'percebus/github-actions-npm@main'
     '.github/workflows/dotnet_ci.yml':
         - 'actions/upload-artifact@v4.6.2'
+        - 'jimmykurian/ci-parity@v1.0.0'
         - 'percebus/github-actions-common@main'
         - 'percebus/github-actions-dotnet@main'
     '.github/workflows/main.yml':
