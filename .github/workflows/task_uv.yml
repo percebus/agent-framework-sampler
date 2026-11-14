@@ -1,4 +1,4 @@
-name: "Re-Usable: poe ci"
+name: "Re-Usable: task ci (uv)"
 
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
@@ -20,25 +20,6 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: percebus/github-actions-uv/.github/actions/setup@main
-
-      # XXX
-      # - uses: percebus/github-actions-uv/.github/actions/tool_install@main
-      #   with:
-      #     requirements-file: ${{ inputs.working-directory }}/requirements.uv.tool.txt
-
-      # - uses: percebus/github-actions-uv/.github/actions/python_install@main
-      #   with:
-      #     working-directory: ${{ inputs.working-directory }}
-
-      # - uses: percebus/github-actions-uv/.github/actions/sync@main
-      #   with:
-      #     working-directory: ${{ inputs.working-directory }}
-
-      # - uses: percebus/github-actions-pip/.github/actions/freeze@main
-
-      # - name: ci.ba.sh
-      #   working-directory: ${{ inputs.working-directory }}
-      #   run: bash scripts/ci.ba.sh
 
       - uses: go-task/setup-task@v2.2.0
 

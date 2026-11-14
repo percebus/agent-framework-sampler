@@ -5,7 +5,7 @@ on:
   pull_request:
     paths:
       - dotnet/SemanticKernelSampler.DotNet/**
-      - .github/workflows/dotnet_ci.yml
+      - .github/workflows/task_dotnet.yml
       - .github/workflows/branch.dotnet.SemanticKernelSampler.yml
 
 concurrency:
@@ -18,7 +18,7 @@ permissions:
 jobs:
   dotnet_ci:
     name: dotnet build
-    uses: ./.github/workflows/dotnet_ci.yml
+    uses: ./.github/workflows/task_dotnet.yml
     with:
       dotnet-project-name: SemanticKernelSampler.DotNet
       dotnet-project: ./*.sln
