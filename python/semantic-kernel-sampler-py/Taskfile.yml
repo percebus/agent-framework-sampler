@@ -5,17 +5,17 @@ tasks:
     cmds:
       - bash ./scripts/uv/tool/install.ba.sh
       - uv python install
-      - uv run -- poe sync_all
+      - uv sync --locked --all-groups --all-extras
       - uv pip freeze
   lint:
     cmds:
-      - uv run -- poe lint
+      - uv run -- pypyr lint
   test:
     cmds:
-      - exit 0
+      - uv run -- pypyr test
   build:
     cmds:
-      - uv run -- poe build
+      - uv run -- pypyr build
   ci:
     cmds:
-      - uv run -- poe ci
+      - uv run -- pypyr ci
