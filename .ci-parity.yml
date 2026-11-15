@@ -7,3 +7,8 @@ workflows:
   # TODO? or XXX?
   # - .github/actions/**/action.yml
   # - .github/actions/**/action.yaml
+
+tools:
+  remove:
+    - bower
+    - docker

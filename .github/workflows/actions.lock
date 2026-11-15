@@ -27,19 +27,18 @@ workflows:
         - 'percebus/github-actions-docker@main'
         - 'percebus/github-actions-node@main'
         - 'percebus/github-actions-npm@main'
-    '.github/workflows/mvn_verify.yml':
-        - 'actions/setup-java@v6.2.0'
-        - 'actions/upload-artifact@v7.0.2'
-        - 'percebus/github-actions-common@main'
     '.github/workflows/task_dotnet.yml':
         - 'actions/upload-artifact@v7.0.2'
         - 'go-task/setup-task@v2.2.0'
-        - 'jimmykurian/ci-parity@v1.0.0'
         - 'percebus/github-actions-common@main'
         - 'percebus/github-actions-dotnet@main'
+    '.github/workflows/task_mvn.yml':
+        - 'actions/setup-java@v6.2.0'
+        - 'actions/upload-artifact@v7.0.2'
+        - 'go-task/setup-task@v2.2.0'
+        - 'percebus/github-actions-common@main'
     '.github/workflows/task_uv.yml':
         - 'go-task/setup-task@v2.2.0'
-        - 'jimmykurian/ci-parity@v1.0.0'
         - 'percebus/github-actions-common@main'
         - 'percebus/github-actions-uv@main'
 dependencies:
@@ -88,11 +87,6 @@ dependencies:
         commit: 'sha1-a00fbb05ce67b35648be3c78cbc9fd85354c757e'
         owner_id: 26048825
         repo_id: 1054141549
-    'jimmykurian/ci-parity@v1.0.0':
-        ref: 'v1.0.0'
-        commit: 'sha1-f03fb17cfad902fba499068a82e6eb9c5ffedecd'
-        owner_id: 1261243
-        repo_id: 1436333148
     'percebus/github-actions-common@main':
         ref: 'main'
         commit: 'sha1-0a4a51663e5d78ce6c6f9ed24f082c43ec987d16'

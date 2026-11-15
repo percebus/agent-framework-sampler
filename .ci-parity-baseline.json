@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "workflows": {
+    ".github/workflows/branch.dotnet.AgentFrameworkSampler.yml": 0,
+    ".github/workflows/branch.dotnet.SemanticKernelSampler.yml": 0,
+    ".github/workflows/branch.github.yml": 0,
+    ".github/workflows/branch.java.yml": 0,
+    ".github/workflows/branch.node.mcp-server.examples.quick-start.yml": 0,
+    ".github/workflows/branch.node.mcp-server.rest-app.posts.yml": 0,
+    ".github/workflows/branch.node.rest-app.yml": 0,
+    ".github/workflows/branch.node.yml": 0,
+    ".github/workflows/branch.python.agent-framework-sampler-py.yml": 0,
+    ".github/workflows/branch.python.semantic-kernel-sampler-py.yml": 0,
+    ".github/workflows/branch.python.yml": 0,
+    ".github/workflows/branch.yml": 1,
+    ".github/workflows/main.yml": 1,
+    ".github/workflows/task_dotnet.yml": 0,
+    ".github/workflows/task_mvn.yml": 0,
+    ".github/workflows/task_uv.yml": 0
+  }
+}
