@@ -7,7 +7,7 @@ on:
   pull_request:
     paths:
       - java/**
-      - .github/workflows/mvn_verify.yml
+      - .github/workflows/task_mvn.yml
       - .github/workflows/branch.java.yml
 
 concurrency:
@@ -16,4 +16,4 @@ concurrency:
 
 jobs:
   mvn_verify:
-    uses: ./.github/workflows/mvn_verify.yml
+    uses: ./.github/workflows/task_mvn.yml
