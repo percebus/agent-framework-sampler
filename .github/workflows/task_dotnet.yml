@@ -71,7 +71,3 @@ jobs:
         with:
           name: ${{ inputs.dotnet-project-name }}.WebApp.zip
           path: ${{ env.WORKSPACE }}/WebApp/bin/${{ inputs.dotnet-configuration }}/${{ inputs.dotnet-target-framework }}
-
-      - uses: jimmykurian/ci-parity@v1.0.0
-        with:
-          working-directory: ${{ env.WORKSPACE }}

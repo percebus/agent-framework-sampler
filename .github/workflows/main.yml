@@ -11,15 +11,6 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # XXX? not being used
-  REPOSITORY_NAME: ${{ github.event.repository.name }}
-
-  # node & npm
-  NODE_VERSION: 22
-
-  # .NET
-  DOTNET_CONFIGURATION: Release
-
   # Dockerfile(s) & docker compose
   DOCKER_BUILDKIT: 1
   DOCKER_TAG_VERSION: latest
@@ -115,7 +106,7 @@ jobs:
 
   mvn_verify:
     needs: lint
-    uses: ./.github/workflows/mvn_verify.yml
+    uses: ./.github/workflows/task_mvn.yml
     name: SemanticKernelSampler.Java
 
   #

@@ -1,0 +1,18 @@
+version: "3"
+
+tasks:
+  install:
+    cmds:
+      - npm run setup:ci
+      - npm install
+  lint:
+    cmds:
+      - npm run lint
+  test:
+    cmds:
+      - npm test
+      - bash scripts/node/workspaces/npm_run.ba.sh test
+  ci:
+    cmds:
+      - task lint
+      - task test

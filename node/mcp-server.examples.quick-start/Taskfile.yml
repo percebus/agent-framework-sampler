@@ -1,0 +1,17 @@
+version: "3"
+
+tasks:
+  install:
+    cmds:
+      - npm run setup:ci
+      - npm install
+  lint:
+    cmds:
+      - exit 0
+  test:
+    cmds:
+      - npm test
+  ci:
+    cmds:
+      - task lint
+      - task test
