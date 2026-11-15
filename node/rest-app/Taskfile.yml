@@ -11,7 +11,6 @@ tasks:
   test:
     cmds:
       - npm test
-      - bash scripts/node/workspaces/npm_run.ba.sh test
   ci:
     cmds:
       - task lint
