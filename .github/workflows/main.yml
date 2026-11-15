@@ -106,7 +106,7 @@ jobs:
 
   mvn_verify:
     needs: lint
-    uses: ./.github/workflows/mvn_verify.yml
+    uses: ./.github/workflows/task_mvn.yml
     name: SemanticKernelSampler.Java
 
   #
