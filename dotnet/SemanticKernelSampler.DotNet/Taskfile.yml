@@ -5,23 +5,30 @@ tasks:
     cmds:
       - dotnet restore
   lint:
+    deps:
+      - install
     cmds:
       # TODO stylecop cli
       - exit 0
-  test:
+  format:
     cmds:
-      - dotnet test
+      # TODO stylecop cli
+      - exit 0
   build:
-    cmds:
-      - dotnet build
-  verify:
-    deps:
-      - lint
-      # does dotnet restore & build automatically
-      - test
-  ci:
     deps:
       - install
-      - lint
+    cmds:
+      - dotnet build
+  test:
+    deps:
       - build
-      - test
+    cmds:
+      - dotnet test
+  verify:
+    cmds:
+      - task: lint
+      - task: test
+  ci:
+    cmds:
+      - task: lint
+      - task: test

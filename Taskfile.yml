@@ -44,54 +44,51 @@ tasks:
   #
   format:
     deps:
-      # - semantic-kernel-py:format
-      # - semantic-kernel-dotnet:format # TODO
-      #
-      - agent-framework-py:format
-      # - agent-framework-dotnet:format # TODO
+      - semantic-kernel-dotnet:format
+      - agent-framework-dotnet:format
     cmds:
       - npm run format
+      - task: agent-framework-py:format
+      # - task: semantic-kernel-py:format
   #
   lint:
     deps:
-      - semantic-kernel-py:lint
-      # - semantic-kernel-dotnet:lint # TODO
-      #
-      - agent-framework-py:lint
-      # - agent-framework-dotnet:lint # TODO
+      - semantic-kernel-dotnet:lint
+      - agent-framework-dotnet:lint
     cmds:
       - npm run lint
+      - task: semantic-kernel-py:lint
+      - task: agent-framework-py:lint
   #
   test:
     deps:
-      - semantic-kernel-py:test
       - semantic-kernel-dotnet:test
-      #
-      - agent-framework-py:lint
       - agent-framework-dotnet:test
     cmds:
       - npm test
+      - task: semantic-kernel-py:test
+      - task: agent-framework-py:lint
   #
   verify:
     deps:
-      - install
-      - lint
-      - test
-      #
-      - semantic-kernel-py:verify
       - semantic-kernel-dotnet:verify
-      #
-      - agent-framework-py:verify
       - agent-framework-dotnet:verify
+    cmds:
+      # - task: install # TODO? or XXX?
+      - task: lint
+      - task: test
+      #
+      - task: semantic-kernel-py:verify
+      - task: agent-framework-py:verify
   #
   ci:
     deps:
-      - install
-      - lint
-      - test
-      #
-      - semantic-kernel-py:ci
       - semantic-kernel-dotnet:ci
-      #
-      - agent-framework-py:ci
       - agent-framework-dotnet:ci
+    cmds:
+      - task: install
+      - task: lint
+      - task: test
+      #
+      - task: semantic-kernel-py:ci
+      - task: agent-framework-py:ci
