@@ -1,17 +1,67 @@
 version: "3"
 
+includes:
+  api: 
+    dir: ./node/rest-app
+    taskfile: ./node/rest-app/Taskfile.yml
+
+  api-mcp: 
+    dir: ./node/mcp-server.rest-app.posts
+    taskfile: ./node/mcp-server.rest-app.posts/Taskfile.yml
+
+  semantic-kernel-py: 
+    dir: ./python/semantic-kernel-sampler-py
+    taskfile: ./python/semantic-kernel-sampler-py/Taskfile.yml
+
+  semantic-kernel-java: 
+    dir: ./java/
+    taskfile: ./java/Taskfile.yml
+
+  semantic-kernel-dotnet: 
+    dir: ./dotnet/SemanticKernelSampler.DotNet
+    taskfile: ./dotnet/SemanticKernelSampler.DotNet/Taskfile.yml
+
+  agent-framework-py: 
+    dir: ./python/agent-framework-sampler-py
+    taskfile: ./python/agent-framework-sampler-py/Taskfile.yml
+
+  agent-framework-dotnet: 
+    dir: ./dotnet/AgentFrameworkSampler.DotNet
+    taskfile: ./dotnet/AgentFrameworkSampler.DotNet/Taskfile.yml
+
 tasks:
   install:
+    deps:
+      - semantic-kernel-py:install
+      # - semantic-kernel-java:install # TODO
+      - semantic-kernel-dotnet:install
+      #
+      - agent-framework-py:install
+      - agent-framework-dotnet:install
     cmds:
       - npm run setup:ci
       - npm install
+  #
   lint:
+    deps:
+      - semantic-kernel-py:lint
+      # - semantic-kernel-dotnet:lint # TODO
+      #
+      - agent-framework-py:lint
+      # - agent-framework-dotnet:lint # TODO
     cmds:
       - npm run lint
+  #
   test:
+    deps:
+      - semantic-kernel-py:test
+      - semantic-kernel-dotnet:test
+      #
+      - agent-framework-py:lint
+      - agent-framework-dotnet:test
     cmds:
       - npm test
-      - bash scripts/node/workspaces/npm_run.ba.sh test
+  #
   ci:
     cmds:
       - task lint
