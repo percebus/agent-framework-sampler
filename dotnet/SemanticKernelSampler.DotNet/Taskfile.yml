@@ -16,12 +16,12 @@ tasks:
       - dotnet build
   verify:
     deps:
-      - install
       - lint
-      - build
+      # does dotnet restore & build automatically
       - test
   ci:
     deps:
-      # does dotnet restore & build automatically
+      - install
       - lint
+      - build
       - test

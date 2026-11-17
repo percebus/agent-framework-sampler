@@ -10,6 +10,9 @@ tasks:
   lint:
     cmds:
       - uv run -- poe lint
+  format:
+    cmds:
+      - uv run -- poe format
   test:
     cmds:
       - exit 0
@@ -21,7 +24,5 @@ tasks:
       - uv run -- poe ci
   verify:
     deps:
-      - install
       - lint
       - test
-      - build

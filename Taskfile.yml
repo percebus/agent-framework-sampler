@@ -42,6 +42,16 @@ tasks:
       - npm run setup:ci
       - npm install
   #
+  format:
+    deps:
+      # - semantic-kernel-py:format
+      # - semantic-kernel-dotnet:format # TODO
+      #
+      - agent-framework-py:format
+      # - agent-framework-dotnet:format # TODO
+    cmds:
+      - npm run format
+  #
   lint:
     deps:
       - semantic-kernel-py:lint
@@ -62,11 +72,6 @@ tasks:
     cmds:
       - npm test
   #
-  ci:
-    deps:
-      - lint
-      - test
-  #
   verify:
     deps:
       - install
@@ -78,3 +83,15 @@ tasks:
       #
       - agent-framework-py:verify
       - agent-framework-dotnet:verify
+  #
+  ci:
+    deps:
+      - install
+      - lint
+      - test
+      #
+      - semantic-kernel-py:ci
+      - semantic-kernel-dotnet:ci
+      #
+      - agent-framework-py:ci
+      - agent-framework-dotnet:ci
