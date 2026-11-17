@@ -1,10 +1,10 @@
 name: "Re-Usable: mvn verify"
 
-permissions:
-  contents: read
-
 on:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
+
+permissions:
+  contents: read
 
 env:
   ARCHITECTURE: x64

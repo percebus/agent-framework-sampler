@@ -10,6 +10,10 @@ tasks:
   lint:
     cmds:
       - uv run -- pypyr lint
+  format:
+    cmds:
+      - exit 0
+      # - uv run -- pypyr format # TODO
   test:
     cmds:
       - uv run -- pypyr test
@@ -20,8 +24,6 @@ tasks:
     cmds:
       - uv run -- pypyr ci
   verify:
-    deps:
-      - install
-      - lint
-      - test
-      - build
+    cmds:
+      - task: lint
+      - task: test
