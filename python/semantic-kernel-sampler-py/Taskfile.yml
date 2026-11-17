@@ -10,9 +10,10 @@ tasks:
   lint:
     cmds:
       - uv run -- pypyr lint
-  # format: # TODO? or XXX?
-  #   cmds:
-  #     - uv run -- pypyr format
+  format:
+    cmds:
+      - exit 0
+      # - uv run -- pypyr format # TODO
   test:
     cmds:
       - uv run -- pypyr test
@@ -23,6 +24,6 @@ tasks:
     cmds:
       - uv run -- pypyr ci
   verify:
-    deps:
-      - lint
-      - test
+    cmds:
+      - task: lint
+      - task: test

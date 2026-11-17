@@ -23,6 +23,6 @@ tasks:
     cmds:
       - uv run -- poe ci
   verify:
-    deps:
-      - lint
-      - test
+    cmds:
+      - task: lint
+      - task: test
