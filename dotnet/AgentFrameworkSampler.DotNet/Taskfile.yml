@@ -14,8 +14,14 @@ tasks:
   build:
     cmds:
       - dotnet build
+  verify:
+    deps:
+      - install
+      - lint
+      - build
+      - test
   ci:
-    cmds:
-      - dotnet restore
-      - dotnet build
-      - dotnet test
+    deps:
+      # does dotnet restore & build automatically
+      - lint
+      - test

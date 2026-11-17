@@ -22,6 +22,9 @@ env/
 # Azure API Center
 .api-center-rules/
 
+# Taskfile
+archive-*/
+
 
 ##################################
 ### VisualStudioCode.gitignore ### SRC: https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
