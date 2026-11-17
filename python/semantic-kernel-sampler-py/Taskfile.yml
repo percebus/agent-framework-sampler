@@ -19,3 +19,9 @@ tasks:
   ci:
     cmds:
       - uv run -- pypyr ci
+  verify:
+    deps:
+      - install
+      - lint
+      - test
+      - build

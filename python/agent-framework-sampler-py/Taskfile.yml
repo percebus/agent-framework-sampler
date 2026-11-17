@@ -19,3 +19,9 @@ tasks:
   ci:
     cmds:
       - uv run -- poe ci
+  verify:
+    deps:
+      - install
+      - lint
+      - test
+      - build

@@ -1,31 +1,31 @@
 version: "3"
 
 includes:
-  api: 
+  api:
     dir: ./node/rest-app
     taskfile: ./node/rest-app/Taskfile.yml
 
-  api-mcp: 
+  api-mcp:
     dir: ./node/mcp-server.rest-app.posts
     taskfile: ./node/mcp-server.rest-app.posts/Taskfile.yml
 
-  semantic-kernel-py: 
+  semantic-kernel-py:
     dir: ./python/semantic-kernel-sampler-py
     taskfile: ./python/semantic-kernel-sampler-py/Taskfile.yml
 
-  semantic-kernel-java: 
+  semantic-kernel-java:
     dir: ./java/
     taskfile: ./java/Taskfile.yml
 
-  semantic-kernel-dotnet: 
+  semantic-kernel-dotnet:
     dir: ./dotnet/SemanticKernelSampler.DotNet
     taskfile: ./dotnet/SemanticKernelSampler.DotNet/Taskfile.yml
 
-  agent-framework-py: 
+  agent-framework-py:
     dir: ./python/agent-framework-sampler-py
     taskfile: ./python/agent-framework-sampler-py/Taskfile.yml
 
-  agent-framework-dotnet: 
+  agent-framework-dotnet:
     dir: ./dotnet/AgentFrameworkSampler.DotNet
     taskfile: ./dotnet/AgentFrameworkSampler.DotNet/Taskfile.yml
 
@@ -63,6 +63,18 @@ tasks:
       - npm test
   #
   ci:
-    cmds:
-      - task lint
-      - task test
+    deps:
+      - lint
+      - test
+  #
+  verify:
+    deps:
+      - install
+      - lint
+      - test
+      #
+      - semantic-kernel-py:verify
+      - semantic-kernel-dotnet:verify
+      #
+      - agent-framework-py:verify
+      - agent-framework-dotnet:verify
