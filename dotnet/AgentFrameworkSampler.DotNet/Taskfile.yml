@@ -26,6 +26,7 @@ tasks:
       - dotnet test
   verify:
     cmds:
+      - task: lint
       - task: test
   ci:
     cmds:
