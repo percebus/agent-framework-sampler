@@ -30,23 +30,6 @@ cli = [
 ]
 
 
-[tool.pyright]
-venvPath = "."
-venv = ".venv"
-defineConstant = { DEBUG = true }
-typeCheckingMode = "strict"
-include = ["src"]
-strict = ["src"]
-# stubPath = "src/stubs" # TODO?
-# ignore = ["src/oldstuff"] # NOTE what is the difference between exclude and ignore?
-exclude = [
-    ".venv",
-    "typings",
-    "**/__pycache__",
-    "**/test*.py",
-    "**/*.as-is.py"
-]
-
 [tool.coverage.run]
 omit = [
     "**/i_*.py",

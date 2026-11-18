@@ -71,6 +71,10 @@ tasks:
       #
       - agent-framework-py:install
       - agent-framework-dotnet:install
+  clean:
+    deps:
+      - semantic-kernel-py:install
+      - agent-framework-py:install
   #
   build:
     deps:

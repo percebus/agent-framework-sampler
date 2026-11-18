@@ -8,7 +8,7 @@ steps:
     in:
       defaults:
         release: False
-        UV_SYNC_CLI_ARGS: "--locked --all-extras"
+        UV_SYNC_CLI_ARGS: "--locked --all-groups"
 
   - name: pypyr.steps.set
     run: "{release}"

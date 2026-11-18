@@ -172,7 +172,7 @@ jobs:
           - image-name: semantic-kernel-sampler-py
             working-directory: python/semantic-kernel-sampler-py
             target: release
-            scan-image: ${{ github.ref == 'refs/heads/main' }}
+            scan-image: ${{ github.ref_name == 'main' }}
 
           #
           # agent-framework-sampler-py
@@ -184,7 +184,7 @@ jobs:
           - image-name: agent-framework-sampler-py
             working-directory: python/agent-framework-sampler-py
             target: release
-            scan-image: ${{ github.ref == 'refs/heads/main' }}
+            scan-image: ${{ github.ref_name == 'main' }}
 
           #
           # SemanticKernelSampler.DotNet
@@ -196,7 +196,7 @@ jobs:
           - image-name: semantic-kernel-sampler-dotnet
             working-directory: dotnet/SemanticKernelSampler.DotNet
             target: webapp
-            scan-image: ${{ github.ref == 'refs/heads/main' }}
+            scan-image: ${{ github.ref_name == 'main' }}
 
           #
           # AgentFrameworkSampler.DotNet
@@ -208,7 +208,7 @@ jobs:
           - image-name: agent-framework-sampler-dotnet
             working-directory: dotnet/AgentFrameworkSampler.DotNet
             target: webapp
-            scan-image: ${{ github.ref == 'refs/heads/main' }}
+            scan-image: ${{ github.ref_name == 'main' }}
 
     name: docker build ${{ matrix.image-name }}.${{ matrix.target }}
     runs-on: ubuntu-latest
