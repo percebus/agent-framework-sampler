@@ -13,5 +13,5 @@ tasks:
       - npm test
   ci:
     cmds:
-      - task lint
-      - task test
+      - task: lint
+      - task: test

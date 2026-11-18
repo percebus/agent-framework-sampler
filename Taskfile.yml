@@ -30,72 +30,107 @@ includes:
     taskfile: ./dotnet/AgentFrameworkSampler.DotNet/Taskfile.yml
 
 tasks:
+  npm:install:
+    cmds:
+      - npm run setup:ci
+      - npm install
+  #
+  npm:run:lint:
+    cmds:
+      - npm run lint
+  #
+  npm:run:format:
+    cmds:
+      - npm run format
+      - task: npm:run:lint
+  #
+  npm:test:
+    # deps: # TODO? or XXX?
+    #   - npm:run:lint
+    cmds:
+      - npm test --ignore-scripts
+  #
+  verify:npm:
+    cmds:
+      - task: npm:run:lint
+      - task: npm:test
+  #
+  ci:npm:
+    cmds:
+      - task: npm:install
+      - task: npm:run:lint
+      - task: npm:test
+  #
   install:
     deps:
+      - npm:install
+      #
       - semantic-kernel-py:install
       - semantic-kernel-dotnet:install
       # - semantic-kernel-java:install # TODO
       #
       - agent-framework-py:install
       - agent-framework-dotnet:install
-    cmds:
-      - npm run setup:ci
-      - npm install
   #
-  format:
+  build:
     deps:
-      - semantic-kernel-py:format
-      - semantic-kernel-dotnet:format
+      - semantic-kernel-py:build
+      - semantic-kernel-dotnet:build
+      # - semantic-kernel-java:build # TODO
       #
-      - agent-framework-py:format
-      - agent-framework-dotnet:format
-    cmds:
-      - npm run format
+      - agent-framework-py:build
+      - agent-framework-dotnet:build
   #
   lint:
     deps:
-      # - install # TODO? or XXX?
+      - npm:run:lint
+      - api:lint
+      - api-mcp:lint
       #
       - semantic-kernel-py:lint
       - semantic-kernel-dotnet:lint
       #
       - agent-framework-py:lint
       - agent-framework-dotnet:lint
-    cmds:
-      - npm run lint
+  #
+  format:
+    deps:
+      - npm:run:format
+      #
+      - semantic-kernel-py:format
+      - semantic-kernel-dotnet:format
+      #
+      - agent-framework-py:format
+      - agent-framework-dotnet:format
   #
   test:
     deps:
-      # - install # TODO? or XXX?
+      - npm:test
+      - api:test
+      - api-mcp:test
       #
       - semantic-kernel-py:test
       - semantic-kernel-dotnet:test
       #
       - agent-framework-py:lint
       - agent-framework-dotnet:test
-    cmds:
-      - npm test
   #
   verify:
     deps:
+      - verify:npm
+      #
       - semantic-kernel-dotnet:verify
       - semantic-kernel-py:verify
       #
       - agent-framework-py:verify
       - agent-framework-dotnet:verify
-    cmds:
-      # - task: install # TODO? or XXX?
-      - task: lint
-      - task: test
   #
   ci:
     deps:
+      - ci:npm
+      #
       - semantic-kernel-py:ci
       - semantic-kernel-dotnet:ci
       #
       - agent-framework-py:ci
       - agent-framework-dotnet:ci
-    cmds:
-      - task: install
-      - task: lint
-      - task: test
