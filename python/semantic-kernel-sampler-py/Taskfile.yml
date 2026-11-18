@@ -9,14 +9,14 @@ tasks:
       - uv pip freeze
   lint:
     cmds:
-      - uv run -- pypyr lint
+      - uv run -- pypyr lint stats=False
   format:
     cmds:
       - exit 0
       # - uv run -- pypyr format # TODO
   test:
     cmds:
-      - uv run -- pypyr test
+      - uv run -- pypyr test lint=False
   build:
     cmds:
       - uv run -- pypyr build
