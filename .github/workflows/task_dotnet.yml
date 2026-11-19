@@ -38,7 +38,7 @@ env:
   WORKSPACE: ./dotnet/${{ inputs.dotnet-project-name }}
 
 jobs:
-  dotnet:
+  dotnet_verify:
     name: dotnet * ${{ inputs.dotnet-project-name }}
     runs-on: ubuntu-latest
     steps:

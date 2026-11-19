@@ -16,8 +16,8 @@ env:
   PYRIGHT_PYTHON_FORCE_VERSION: latest
 
 jobs:
-  verify:
-    name: Verify
+  uv_verify:
+    name: uv
     runs-on: ubuntu-latest
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
