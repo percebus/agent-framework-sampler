@@ -3,7 +3,7 @@ name = "semantic-kernel-sampler-py"
 version = "0.1.0"
 readme = "README.md"
 description = "semantic-kernel sampler"
-requires-python = ">=3.10,<4.0.0"
+requires-python = ">=3.14,<4.0.0"
 authors = [
     {name = "JCystems"}
 ]
@@ -14,11 +14,11 @@ dependencies = [
     "lagom (>=2.7.7,<3.0.0)",
     "pydantic (>=2.10.4,<3.0.0)",
     "pydantic-settings (>=2.7.0,<3.0.0)",
-    "semantic-kernel[mcp] (>=1.35.2,<2.0.0)",
+    "semantic-kernel[mcp] (>=1.47.0,<2.0.0)",
     "uvicorn (>=0.35.0,<0.36.0)",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
     "pyhamcrest (>=2.1.0,<3.0.0)",
     "pytest (>=8.4.1,<9.0.0)",
@@ -27,27 +27,10 @@ dev = [
 ]
 cli = [
     "pylint (>=3.3.8,<4.0.0)",
-    "pyright (>=1.1.403,<2.0.0)",
+    "pyright (>=1.1.414,<2.0.0)",
     "ruff (>=0.12.8,<0.13.0)",
 ]
 
-
-[tool.pyright]
-venvPath = "."
-venv = ".venv"
-defineConstant = { DEBUG = true }
-typeCheckingMode = "strict"
-include = ["src"]
-strict = ["src"]
-# stubPath = "src/stubs" # TODO?
-# ignore = ["src/oldstuff"] # NOTE what is the difference between exclude and ignore?
-exclude = [
-    ".venv",
-    "typings",
-    "**/__pycache__",
-    "**/test*.py",
-    "**/*.as-is.py"
-]
 
 [tool.coverage.run]
 omit = [

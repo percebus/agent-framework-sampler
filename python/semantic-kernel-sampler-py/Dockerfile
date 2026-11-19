@@ -1,11 +1,11 @@
-FROM python:3.12.8 AS base
+FROM python:3.14.7 AS base
 WORKDIR /usr/app
 COPY . .
 # RUN bash scripts/bash/clean.ba.sh  # TODO
 
 # SRC: https://docs.astral.sh/uv/guides/integration/docker/
 FROM base AS uv
-RUN curl -LsSf https://astral.sh/uv/0.8.9/install.sh | sh
+RUN curl -LsSf https://astral.sh/uv/0.13.9/install.sh | sh
 ENV PATH="/root/.local/bin/:$PATH"
 RUN uv --version
 RUN uv venv

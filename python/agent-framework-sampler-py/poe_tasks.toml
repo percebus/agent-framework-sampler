@@ -1,7 +1,7 @@
 [tasks]
     [tasks.clean]
         help = "Clean the project"
-        cmd = "uvx pyclean src"
+        cmd = "uvx pyclean src --debris"
 
     [tasks.ruff_format]
         help = "format codebase with ruff"
@@ -51,7 +51,7 @@
 
     [tasks.sync_all]
     help = "uv sync everything"
-    cmd = "uv sync --locked --all-extras"
+    cmd = "uv sync --locked --all-groups"
 
     [tasks.sync_release]
     help = "uv sync only needed"
@@ -64,4 +64,4 @@
 
     [tasks.ci]
     help = "Run the CI pipeline tasks"
-    sequence = ["sync_all", "lint", "build"]
+    sequence = ["sync_all", "clean", "lint", "build"]

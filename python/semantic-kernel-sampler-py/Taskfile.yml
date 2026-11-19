@@ -5,8 +5,11 @@ tasks:
     cmds:
       - bash ./scripts/uv/tool/install.ba.sh
       - uv python install
-      - uv sync --locked --all-groups --all-extras
+      - uv sync --locked --all-groups
       - uv pip freeze
+  clean:
+    cmds:
+      - uv run -- pypyr clean
   lint:
     cmds:
       - uv run -- pypyr lint stats=False

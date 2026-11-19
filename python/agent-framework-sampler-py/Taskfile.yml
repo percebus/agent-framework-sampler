@@ -7,6 +7,9 @@ tasks:
       - uv python install
       - uv run -- poe sync_all
       - uv pip freeze
+  clean:
+    cmds:
+      - uv run -- poe clean
   lint:
     cmds:
       - uv run -- poe lint
