@@ -15,7 +15,7 @@ tasks:
       - uv run -- pypyr lint stats=False
   format:
     cmds:
-      - exit 0
+      - uv run -- pypyr style
       # - uv run -- pypyr format # TODO
   test:
     cmds:
