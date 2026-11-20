@@ -10,6 +10,8 @@ class MsLearnMCPChatCompletionAgent(ChatCompletionAgent):
 
         self.description = "Learn Docs Plugin"
 
-        self.instructions = "Answer questions about the Microsoft's Semantic Kernel SDK."
+        self.instructions = (
+            "Answer questions about the Microsoft's Semantic Kernel SDK."
+        )
 
         return super().model_post_init(__context)

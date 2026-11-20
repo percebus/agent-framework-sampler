@@ -3,10 +3,16 @@ import asyncio
 from semantic_kernel.contents import ChatMessageContent
 from semantic_kernel.contents.utils.author_role import AuthorRole
 
-from semantic_kernel_sampler.ai.modules.mcp.demo.sk.agent.v3 import DemoMCPChatCompletionAgent
-from semantic_kernel_sampler.ai.modules.mcp.demo.sk.plugin.stdio import DemoStdioMCPPlugin
+from semantic_kernel_sampler.ai.modules.mcp.demo.sk.agent.v3 import (
+    DemoMCPChatCompletionAgent,
+)
+from semantic_kernel_sampler.ai.modules.mcp.demo.sk.plugin.stdio import (
+    DemoStdioMCPPlugin,
+)
 from semantic_kernel_sampler.dependency_injection.container import container
-from semantic_kernel_sampler.sk.agents.builtin.threaded.invoker import ThreadedBuiltinAgentInvoker
+from semantic_kernel_sampler.sk.agents.builtin.threaded.invoker import (
+    ThreadedBuiltinAgentInvoker,
+)
 
 
 # SRC: https://github.com/microsoft/semantic-kernel/blob/python-1.35.2/python/samples/getting_started_with_agents/chat_completion/step03_chat_completion_agent_with_kernel.py
@@ -20,8 +26,12 @@ async def main():
             user_input = input("User: ")
             print(f"# User: {user_input}")
             # Invoke the agent for a response
-            oChatMessageContent = ChatMessageContent(role=AuthorRole.USER, content=user_input)
-            response = await oThreadedBuiltinAgentInvoker.invoke(messages=[oChatMessageContent])
+            oChatMessageContent = ChatMessageContent(
+                role=AuthorRole.USER, content=user_input
+            )
+            response = await oThreadedBuiltinAgentInvoker.invoke(
+                messages=[oChatMessageContent]
+            )
             print(f"# {response.name}: {response}")
 
     # # Cleanup: Clear the thread

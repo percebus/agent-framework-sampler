@@ -2,12 +2,18 @@ from typing import Generic, Optional, Protocol, TypeVar
 
 from semantic_kernel.agents.agent import Agent, TMessage, TThreadType
 
-from semantic_kernel_sampler.sk.agents.builtin.protocol import BuiltinAgentInvokerProtocol
+from semantic_kernel_sampler.sk.agents.builtin.protocol import (
+    BuiltinAgentInvokerProtocol,
+)
 
 TAgent = TypeVar("TAgent", bound=Agent)
 
 
-class ThreadedBuiltinAgentInvokerProtocol(Generic[TAgent, TThreadType, TMessage], BuiltinAgentInvokerProtocol[TAgent, TMessage], Protocol):
+class ThreadedBuiltinAgentInvokerProtocol(
+    Generic[TAgent, TThreadType, TMessage],
+    BuiltinAgentInvokerProtocol[TAgent, TMessage],
+    Protocol,
+):
     # Inherits
     # agent: TAgent
     # async def invoke(self, messages: list[TMessage]) -> AgentResponseItem[TMessage]: ...

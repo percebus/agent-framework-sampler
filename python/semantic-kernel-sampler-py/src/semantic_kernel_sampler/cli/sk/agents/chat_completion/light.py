@@ -3,9 +3,13 @@ import asyncio
 from semantic_kernel.contents import ChatMessageContent
 from semantic_kernel.contents.utils.author_role import AuthorRole
 
-from semantic_kernel_sampler.ai.modules.light.sk.agent.v3 import LightChatCompletionAgent
+from semantic_kernel_sampler.ai.modules.light.sk.agent.v3 import (
+    LightChatCompletionAgent,
+)
 from semantic_kernel_sampler.dependency_injection.container import container
-from semantic_kernel_sampler.sk.agents.builtin.threaded.invoker import ThreadedBuiltinAgentInvoker
+from semantic_kernel_sampler.sk.agents.builtin.threaded.invoker import (
+    ThreadedBuiltinAgentInvoker,
+)
 
 # Simulate a conversation with the agent
 USER_INPUTS = [
@@ -25,8 +29,12 @@ async def main():
     for user_input in USER_INPUTS:
         print(f"# User: {user_input}")
         # Invoke the agent for a response
-        oChatMessageContent = ChatMessageContent(role=AuthorRole.USER, content=user_input)
-        response = await oThreadedBuiltinAgentInvoker.invoke(messages=[oChatMessageContent])
+        oChatMessageContent = ChatMessageContent(
+            role=AuthorRole.USER, content=user_input
+        )
+        response = await oThreadedBuiltinAgentInvoker.invoke(
+            messages=[oChatMessageContent]
+        )
         print(f"# {response.name}: {response}")
 
     # Cleanup: Clear the thread

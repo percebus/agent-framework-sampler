@@ -5,20 +5,30 @@ from a2a.types import AgentCapabilities, AgentCard, AgentSkill
 
 from semantic_kernel_sampler.a2a.cards.protocol import A2ACardsProtocol
 from semantic_kernel_sampler.configuration.mixin import ConfigurableMixin
-from semantic_kernel_sampler.sk.agents.custom.chat.invoker import CustomSemanticChatInvoker
+from semantic_kernel_sampler.sk.agents.custom.chat.invoker import (
+    CustomSemanticChatInvoker,
+)
 
 if TYPE_CHECKING:
     from semantic_kernel_sampler.configuration.os_environ.a2a import A2ASettings
 
 
 @dataclass
-class DemoStdioMCPCustomSemanticA2Agent(ConfigurableMixin, CustomSemanticChatInvoker, A2ACardsProtocol):
+class DemoStdioMCPCustomSemanticA2Agent(
+    ConfigurableMixin, CustomSemanticChatInvoker, A2ACardsProtocol
+):
     def createAgentSkill__add(self) -> AgentSkill:
         return AgentSkill(
             id="add",
             name="Addition Tool",
             description="Add two numbers",
-            tags=["modelcontextprotocol", "typescript-sdk", "example", "Quick Start", "math"],
+            tags=[
+                "modelcontextprotocol",
+                "typescript-sdk",
+                "example",
+                "Quick Start",
+                "math",
+            ],
             examples=[
                 "Add 2 and 3",
                 "Add 5 and 7",

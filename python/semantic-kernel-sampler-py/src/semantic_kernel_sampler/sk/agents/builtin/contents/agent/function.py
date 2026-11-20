@@ -1,9 +1,15 @@
 from dataclasses import dataclass, field
 from logging import Logger
 
-from semantic_kernel.contents import ChatMessageContent, FunctionCallContent, FunctionResultContent
+from semantic_kernel.contents import (
+    ChatMessageContent,
+    FunctionCallContent,
+    FunctionResultContent,
+)
 
-from semantic_kernel_sampler.sk.agents.builtin.contents.agent.protocol import AgentResponseProtocol
+from semantic_kernel_sampler.sk.agents.builtin.contents.agent.protocol import (
+    AgentResponseProtocol,
+)
 
 
 @dataclass
@@ -20,6 +26,8 @@ class FunctionObservabilityTracker(AgentResponseProtocol):
         self.logger.info("%s: %s", message.name, message.content)
         for item in message.items:
             if isinstance(item, FunctionCallContent):
-                self.logger.debug("Calling '%s' with arguments '%s'", item.name, item.arguments)
+                self.logger.debug(
+                    "Calling '%s' with arguments '%s'", item.name, item.arguments
+                )
             if isinstance(item, FunctionResultContent):
                 self.logger.debug("Result from '%s' is '%s'", item.name, item.result)

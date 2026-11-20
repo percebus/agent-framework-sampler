@@ -1,10 +1,14 @@
 from typing import Protocol
 
 from semantic_kernel_sampler.a2a.cards.protocol import A2ACardsProtocol
-from semantic_kernel_sampler.sk.agents.builtin.orchestration.protocol import BuiltinOrchestrationInvokerProtocol
+from semantic_kernel_sampler.sk.agents.builtin.orchestration.protocol import (
+    BuiltinOrchestrationInvokerProtocol,
+)
 
 
-class SemanticOrchestrationA2AInvokerProtocol(A2ACardsProtocol, BuiltinOrchestrationInvokerProtocol, Protocol):
+class SemanticOrchestrationA2AInvokerProtocol(
+    A2ACardsProtocol, BuiltinOrchestrationInvokerProtocol, Protocol
+):
     # NOTE: Inherited
     # agent_card: AgentCard
     # extended_agent_card: Optional[AgentCard]

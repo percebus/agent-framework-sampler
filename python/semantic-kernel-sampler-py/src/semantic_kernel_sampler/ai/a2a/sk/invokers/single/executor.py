@@ -7,7 +7,9 @@ from a2a.utils import new_agent_text_message
 from semantic_kernel.contents import ChatMessageContent
 from semantic_kernel.contents.utils.author_role import AuthorRole
 
-from semantic_kernel_sampler.ai.a2a.sk.invokers.single.protocol import SemanticA2AInvokerProtocol
+from semantic_kernel_sampler.ai.a2a.sk.invokers.single.protocol import (
+    SemanticA2AInvokerProtocol,
+)
 
 if TYPE_CHECKING:
     from a2a.types import Message
@@ -25,9 +27,13 @@ class A2AgentInvokerExecutor(AgentExecutor):
         event_queue: EventQueue,
     ) -> None:
         user_input: str = context.get_user_input()
-        requestKernelContent = ChatMessageContent(role=AuthorRole.USER, content=user_input)
+        requestKernelContent = ChatMessageContent(
+            role=AuthorRole.USER, content=user_input
+        )
         messages: list[KernelContent] = [requestKernelContent]
-        responseKernelContent: Optional[KernelContent] = await self.agent.invoke(messages)
+        responseKernelContent: Optional[KernelContent] = await self.agent.invoke(
+            messages
+        )
         if not responseKernelContent:
             raise ValueError("No message found in response")
 

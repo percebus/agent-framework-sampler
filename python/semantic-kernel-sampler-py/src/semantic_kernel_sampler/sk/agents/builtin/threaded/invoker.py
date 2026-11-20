@@ -6,16 +6,22 @@ from semantic_kernel.agents import Agent  # pylint: disable=no-name-in-module
 from semantic_kernel.agents.agent import AgentResponseItem, AgentThread
 from semantic_kernel.contents import ChatMessageContent
 
-from semantic_kernel_sampler.sk.agents.builtin.threaded.protocol import ThreadedBuiltinAgentInvokerProtocol
+from semantic_kernel_sampler.sk.agents.builtin.threaded.protocol import (
+    ThreadedBuiltinAgentInvokerProtocol,
+)
 
 
 @dataclass
-class ThreadedBuiltinAgentInvoker(ThreadedBuiltinAgentInvokerProtocol[Agent, AgentThread, ChatMessageContent], ABC):
+class ThreadedBuiltinAgentInvoker(
+    ThreadedBuiltinAgentInvokerProtocol[Agent, AgentThread, ChatMessageContent], ABC
+):
     agent: Agent = field()
 
     agent_thread: Optional[AgentThread] = field(default=None)
 
-    async def invoke(self, messages: list[ChatMessageContent]) -> AgentResponseItem[ChatMessageContent]:
+    async def invoke(
+        self, messages: list[ChatMessageContent]
+    ) -> AgentResponseItem[ChatMessageContent]:
         # fmt: off
         response: AgentResponseItem[ChatMessageContent] = \
             await self.agent.get_response(messages=messages, thread=self.agent_thread)  # pyright: ignore[reportArgumentType, reportUnknownMemberType]

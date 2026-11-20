@@ -4,7 +4,9 @@ from semantic_kernel.contents import ChatMessageContent
 from semantic_kernel.contents.utils.author_role import AuthorRole
 
 from semantic_kernel_sampler.dependency_injection.container import container
-from semantic_kernel_sampler.sk.agents.builtin.orchestration.group import GroupChatBuiltinOrchestrationInvoker
+from semantic_kernel_sampler.sk.agents.builtin.orchestration.group import (
+    GroupChatBuiltinOrchestrationInvoker,
+)
 
 # Simulate a conversation with the orchestrator
 USER_INPUTS = [
@@ -18,7 +20,9 @@ async def main():
 
     for user_input in USER_INPUTS:
         print(f"# User: {user_input}")
-        requestKernelContent = ChatMessageContent(role=AuthorRole.USER, content=user_input)
+        requestKernelContent = ChatMessageContent(
+            role=AuthorRole.USER, content=user_input
+        )
         messages: list[ChatMessageContent] = [requestKernelContent]
 
         invoker.runtime.start()

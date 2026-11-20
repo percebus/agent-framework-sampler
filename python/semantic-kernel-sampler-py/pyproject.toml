@@ -3,7 +3,7 @@ name = "semantic-kernel-sampler-py"
 version = "0.1.0"
 readme = "README.md"
 description = "semantic-kernel sampler"
-requires-python = ">=3.14,<4.0.0"
+requires-python = ">=3.14.7,<4.0.0"
 authors = [
     {name = "JCystems"}
 ]
