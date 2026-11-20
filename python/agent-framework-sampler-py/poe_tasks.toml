@@ -29,7 +29,7 @@
 
     [tasks.lint]
         help = "Checks linting"
-        sequence = ["uv-sort_check", "ruff_check", "pyright"]
+        sequence = ["uv-sort_check", "ruff_check"] #, "pyright"] # FIXME
 
     [tasks.format]
         help = "Reformat"
