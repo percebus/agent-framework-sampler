@@ -6,7 +6,9 @@ from semantic_kernel.agents import ChatCompletionAgent, ChatHistoryAgentThread
 from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
 
 from semantic_kernel_sampler.dependency_injection.container import container
-from semantic_kernel_sampler.third_party.microsoft.learn.api.mcp import createMCPStreamableHttpPlugin
+from semantic_kernel_sampler.third_party.microsoft.learn.api.mcp import (
+    createMCPStreamableHttpPlugin,
+)
 
 """
 The following sample demonstrates how to create a chat completion agent that

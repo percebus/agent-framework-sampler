@@ -3,7 +3,9 @@ from logging import Logger
 
 from semantic_kernel.contents import ChatMessageContent
 
-from semantic_kernel_sampler.sk.agents.builtin.contents.agent.protocol import AgentResponseProtocol
+from semantic_kernel_sampler.sk.agents.builtin.contents.agent.protocol import (
+    AgentResponseProtocol,
+)
 
 
 @dataclass

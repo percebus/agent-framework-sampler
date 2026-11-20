@@ -7,7 +7,9 @@ from semantic_kernel.contents.utils.author_role import AuthorRole
 from semantic_kernel_sampler.dependency_injection.container import container
 from semantic_kernel_sampler.rest.models.request import RequestModel
 from semantic_kernel_sampler.rest.models.response import ResponseModel
-from semantic_kernel_sampler.sk.agents.custom.chat.invoker import CustomSemanticChatInvoker
+from semantic_kernel_sampler.sk.agents.custom.chat.invoker import (
+    CustomSemanticChatInvoker,
+)
 
 if TYPE_CHECKING:
     from flask.wrappers import Response as FlaskResponse
@@ -28,11 +30,17 @@ async def post_async():
     print(f"request: {oRequestModel}")
     oResponseModel: ResponseModel = ResponseModel(request=oRequestModel)
 
-    oCustomSemanticChatInvoker: CustomSemanticChatInvoker = container[CustomSemanticChatInvoker]
+    oCustomSemanticChatInvoker: CustomSemanticChatInvoker = container[
+        CustomSemanticChatInvoker
+    ]
 
-    requestChatMessageContent = ChatMessageContent(role=AuthorRole.USER, content=oRequestModel.message)
+    requestChatMessageContent = ChatMessageContent(
+        role=AuthorRole.USER, content=oRequestModel.message
+    )
     messages: list[KernelContent] = [requestChatMessageContent]
-    responseChatMessageContent: Optional[KernelContent] = await oCustomSemanticChatInvoker.invoke(messages=messages)
+    responseChatMessageContent: Optional[
+        KernelContent
+    ] = await oCustomSemanticChatInvoker.invoke(messages=messages)
     if responseChatMessageContent:
         oResponseModel.message = str(responseChatMessageContent)
 

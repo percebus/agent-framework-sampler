@@ -9,8 +9,12 @@ class BlogPostsStdioMCPPlugin(StdioMCPPlugin):
     def create_command_args(self) -> list[str]:
         current_working_directory = Path.cwd()
         self.logger.debug("Current working directory: %s", current_working_directory)
-        projectPath = Path(current_working_directory).resolve()  # Resolve to handle symlinks and relative paths
-        mcpPath: Path = projectPath.parent.parent.joinpath("node", "mcp-server.rest-app.posts")
+        projectPath = Path(
+            current_working_directory
+        ).resolve()  # Resolve to handle symlinks and relative paths
+        mcpPath: Path = projectPath.parent.parent.joinpath(
+            "node", "mcp-server.rest-app.posts"
+        )
 
         self.logger.info("Using MCP server path: %s", mcpPath)
         return [

@@ -7,4 +7,6 @@ from semantic_kernel.contents import ChatMessageContent
 class BuiltinOrchestrationInvokerProtocol(Protocol):
     runtime: InProcessRuntime
 
-    async def invoke(self, messages: list[ChatMessageContent]) -> list[ChatMessageContent]: ...
+    async def invoke(
+        self, messages: list[ChatMessageContent]
+    ) -> list[ChatMessageContent]: ...

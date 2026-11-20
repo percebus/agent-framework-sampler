@@ -4,7 +4,9 @@ from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from semantic_kernel_sampler.configuration.os_environ.a2a import A2ASettings
-from semantic_kernel_sampler.configuration.os_environ.azure_openai import AzureOpenAISettings
+from semantic_kernel_sampler.configuration.os_environ.azure_openai import (
+    AzureOpenAISettings,
+)
 
 
 class Settings(BaseSettings):

@@ -4,7 +4,9 @@ from logging import Logger
 from semantic_kernel.contents import ChatMessageContent
 from semantic_kernel.contents.utils.author_role import AuthorRole
 
-from semantic_kernel_sampler.sk.agents.builtin.contents.human.protocol import HumanResponseProtocol
+from semantic_kernel_sampler.sk.agents.builtin.contents.human.protocol import (
+    HumanResponseProtocol,
+)
 
 
 @dataclass
