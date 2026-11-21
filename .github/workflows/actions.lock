@@ -33,7 +33,7 @@ workflows:
         - 'percebus/github-actions-common@main'
         - 'percebus/github-actions-dotnet@main'
     '.github/workflows/task_mvn.yml':
-        - 'actions/setup-java@v6.2.0'
+        - 'actions/setup-java@v6.3.0'
         - 'actions/upload-artifact@v7.0.2'
         - 'go-task/setup-task@v2.2.0'
         - 'percebus/github-actions-common@main'
@@ -52,9 +52,9 @@ dependencies:
         commit: 'sha1-55ec9447dda3d1cf6bd587150f3262f30ee10815'
         owner_id: 44036562
         repo_id: 192625306
-    'actions/setup-java@v6.2.0':
-        ref: 'v6.2.0'
-        commit: 'sha1-77dd5b2ce225ea11469928ac317850245a74ae78'
+    'actions/setup-java@v6.3.0':
+        ref: 'v6.3.0'
+        commit: 'sha1-d1374f8ac74474200d16ef8ecee22c7ae7a51880'
         owner_id: 44036562
         repo_id: 196057608
     'actions/setup-node@v3':
